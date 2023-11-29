@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        //localStorage.setItem('usuario', 'admin');
+        //localStorage.setItem('dato', 'pc');
+
+        //const user = localStorage.getItem('usuario');
+        //const midato = localStorage.getItem('dato');
+
+        //console.log('Usuario:', user);
+        //console.log(midato + "" + user );
+
+        var alumno = [
+            { nombre: 'Juan', edad: 30 }
+            , { nombre: 'Luis', edad: 11 }
+        ];
+
+        //localStorage.setItem('alumno', alumno);
+
+        //var alumnovar = localStorage.getItem('alumno');
+        //console.log(alumnovar);
+        //console.log(typeof (alumnovar));
+
+        localStorage.setItem('alumnoupc', JSON.stringify(alumno));
+        var alumnostring = localStorage.getItem('alumnoupc');
+        console.log(alumnostring);
+        console.log(typeof (alumnostring));
+
+        var alumnoobj = JSON.parse(localStorage.getItem('alumnoupc')) || [];
+
+        alumnoobj.push({ nombre: 'Maria', edad: 27 });
+
+        console.log(alumnoobj);
+        console.log(typeof (alumnoobj));
+
+        const listaalumnos = document.getElementById('listaalumnos');
+        alumnoobj.forEach(alumno => {
+            const listitem = document.createElement('li');
+            listitem.textContent = alumno.nombre + " " + alumno.edad;
+            listaalumnos.appendChild(listitem);
+        });
+
+    </script>
+</body>
+</html>

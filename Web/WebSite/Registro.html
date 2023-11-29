@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Bienvenidos a Cibertec WebSite</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <a class="headerlogo" href="Index.html">
+            <img src="Images/logoCibertec1.png" />
+        </a>
+        <nav class="dropdown">
+            <button class="menu-title">Menu</button>
+            <ul class="dropdown-content">
+                <li><a href="Index.html">Inicio</a></li>
+                <li><a href="Registro.html">Registro</a></li>
+                <li><a href="Productos.html">Productos</a></li>
+                <li><a href="Index.html">Ubíquenos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h3>Registro de Datos</h3>
+        <form>
+            <p>
+                Experiencia Laboral:
+                Ef:<input type="number" value="0" min="0" step="0.1" /><br />
+                Ado:<input type="number" value="0" min="0" step="0.1" /><br />
+                Mvc:<input type="number" value="0" min="0" step="0.1" /><br />
+                Javascript:<input type="number" value="0" min="0" step="0" /><br />
+            </p>
+            <p>
+                Código : <input type="text" readonly />
+            </p>
+            <p>
+                <datalist id="browsers">
+                    <option value="Internet Explorer"></option>
+                    <option value="Firefox"></option>
+                    <option value="Chrome"></option>
+                    <option value="Opera"></option>
+                    <option value="Safari"></option>
+                </datalist>
+                Browser preferido:<input list="browsers" />
+            </p>
+            <p>
+                Nombre: <input 
+                            type="text" required title="Ingresar el nombre"
+                               oninvalid="this.setCustomValidity('Nombre requerido!!!!')"
+                               oninput="this.setCustomValidity('')"
+                        />
+            </p>
+            <p>
+                Fecha de Nacimiento: <input type="date" value="2023-11-06" />
+            </p>
+            <p>
+                Edad: <input name="edad" type="number" min="18" max="80" step="1" />
+            </p>
+            <p>
+                Correo: <input type="email" placeholder="email@dominio.com" />
+            </p>
+            <p>
+                Color: <input type="color" value="#b97a40" />
+            </p>
+            <p>
+                Página web: <input type="url" />
+            </p>
+            <p>
+                Teléfono: <input type="tel" pattern="\d\d-\d\d" />
+            </p>
+            <p>
+                Curriculum: <input type="file" accept=".pdf" />
+            </p>
+            <p>
+                Certificados: <input type="file" multiple accept=".pdf,.docx" />
+            </p>
+            <p>
+                <input type="submit" value="Enviar" />
+            </p>
+        </form>
+    </section>
+    <footer>
+        Todos los derechos reservados - <span id="fecha"></span>
+    </footer>
+    <script src="Scripts/index.js" type="text/javascript"></script>
+</body>
+</html>

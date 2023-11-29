@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Carrito de compras</title>
+</head>
+<body>
+    <h1>Actualizar carrito</h1>
+    <div id="divProductos">
+        <h2>Productos Disponibles</h2>
+        <ul id="ulListaProductos">
+            <li data-producto="Reloj" data-precio="1000">Reloj - S/1000.00 <button onclick="f_Agregar(this.parentElement);">Agregar</button></li>
+            <li data-producto="Billetera" data-precio="350">Billetera - S/350.00 <button onclick="f_Agregar(this.parentElement);">Agregar</button></li>
+            <li data-producto="Teléfono" data-precio="5000">Teléfono - S/5000.00 <button onclick="f_Agregar(this.parentElement);">Agregar</button></li>
+        </ul>
+    </div>
+    <div id="divCarrito">
+        <h2>Contenido del carrito</h2>
+        <ul id="ulListaCarrito"></ul>
+        <p>Total: <span id="spTotal">S/ 0</span></p>
+        <br />
+        <button onclick="f_Limpiar();">Vaciar Carrito</button>
+    </div>
+    <script type="text/javascript">
+
+        function f_Agregar(pButton) {
+            // Obtener valores
+            var vProducto = pButton.getAttribute("data-producto");
+            var vPrecio = pButton.getAttribute("data-precio");
+            // Carrito
+            if (localStorage.getItem('lsCarrito') == null) {
+                // Agregar
+                var lNuevo = [{ Name: vProducto, Price: vPrecio, Count: 1 }];
+                localStorage.setItem('lsCarrito', JSON.stringify(lNuevo));
+            } else {
+                var lActual = JSON.parse(localStorage.getItem('lsCarrito')) || [];
+                var boExiste = false;
+                // Validar si existe el producto
+                lActual.forEach(producto => {
+                    if (producto.Name == vProducto) {
+                        producto.Count = producto.Count + 1;
+                        boExiste = true;
+                    }
+                });
+                if (boExiste == false) {
+                    var eNuevo2 = { Name: vProducto, Price: vPrecio, Count: 1 };
+                    lActual.push(eNuevo2);
+                }
+                localStorage.setItem('lsCarrito', JSON.stringify(lActual));
+            }
+            f_Mostrar();
+        }
+
+        function f_Mostrar() {
+            var lCargado = JSON.parse(localStorage.getItem('lsCarrito')) || [];
+            var sSuma = 0;
+            const listaalumnos = document.getElementById('ulListaCarrito');
+            const spTotal = document.getElementById('spTotal');
+            listaalumnos.innerHTML = '';
+            spTotal.innerHTML = '';
+            lCargado.forEach(prod2 => {
+                const listitem = document.createElement('li');
+                listitem.textContent = prod2.Name + " > " + prod2.Count + " unidad(es)";
+                listaalumnos.appendChild(listitem);
+                sSuma += (prod2.Count * prod2.Price);
+            });
+            spTotal.innerHTML = "<b>S/ " + sSuma + "</b>";
+        }
+
+        function f_Limpiar() {
+            localStorage.removeItem('lsCarrito');
+            f_Mostrar();
+        }
+
+    </script>
+</body>
+</html>

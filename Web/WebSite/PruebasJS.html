@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+    <h1>Javascript</h1>
+    <script>
+        var persona = {
+            nombre:"José"
+            , edad:25
+            , ciudad:"Lima"
+            , f_DecirAlgo: function () {
+                console.log("Hola soy " + this.nombre);
+            }
+        };
+        console.log(persona.nombre);
+        persona.f_DecirAlgo();
+
+        function f_Persona(pNombre, pEdad, pCiudad) {
+            this.nombre = pNombre;
+            this.edad = pEdad;
+            this.ciudad = pCiudad;
+            fDecirAlgo2 = function() {
+                console.log("Hola, soy " + this.nombre);
+            }
+        }
+        var persona1 = new f_Persona("Andres", 45, "Arequipa");
+        console.log(persona1.ciudad);
+
+        var empresa = {
+            nombre: "Mi empresa"
+            , ubicacion: {
+                ciudad: "Lima"
+                , pais: "Perú"
+            }
+            , codigopostal: "51"
+            , empleados: [
+                { nombre: "Andres", edad: 40 }
+                , { nombre: "Julia", edad: 23 }
+                , { nombre: "Joe", edad: 29 }
+            ]
+        }
+        console.log(empresa.nombre);
+        console.log(empresa.ubicacion.pais);
+        console.log(empresa.codigopostal);
+        console.log(empresa.empleados[0].nombre);
+
+        var libro = {
+            titulo: "La Odisea"
+            , autor: "Homero"
+            , f_Comentario: function () {
+                return "Este es un buen libro escrito por " + this.autor;
+            }
+        }
+        console.log(libro.autor);
+        libro.numpaginas = 100;
+        console.log(libro.numpaginas);
+        console.log(libro.f_Comentario());
+
+        var a = 10;
+        var b = "10";
+        var iguales = a == b;
+        console.log(iguales);
+        var iguales = a === b;
+
+        var x = 10;
+        var y = 5;
+        var modulo = x % y;
+
+        x += y;
+        console.log(x);
+
+        function fSumar(a, b) {
+            return a + b;
+        }
+
+        function fOperaciones(a, b) {
+            var multi = a * b;
+            var resta = a - b;
+            return { multiplicacion: multi, resta: resta };
+        }
+
+        var vResultados = fOperaciones(4, 2);
+        console.log(vResultados);
+        console.log(vResultados.multiplicacion);
+
+        function fComparar(x, y) {
+            if (x > y) {
+                return x + " es mayor que " + y;
+            } else if (x < y) {
+                return x + " es menor que " + y;
+            } else {
+                return x + " es igual que " + y;
+            }
+        }
+        var result = fComparar(23, "25");
+        console.log(result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="divElemento"></div>
+    <script>
+        const empleado = { nombre: "José", cargo: "Operador" };
+
+        localStorage.setItem("empleado", JSON.stringify(empleado));
+
+        const empleadoSave = localStorage.getItem("empleado");
+        const empleadoObj = JSON.parse(empleadoSave);
+
+        let elemento = document.getElementById("divElemento");
+        let div = document.createElement("div");
+        div.innerHTML = empleadoObj.nombre + " " + empleadoObj.cargo;
+        elemento.appendChild(div);
+
+    </script>
+</body>
+</html>
