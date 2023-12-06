@@ -21,9 +21,13 @@ namespace Cibertec.MVC.Controllers
             return View(_unit.Customers.GetList());
         }
 
-        public ActionResult Create()
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
+        public PartialViewResult Create()
         {
-            return View();
+            return PartialView("_Create", new Customers());
         }
 
         [HttpPost]
@@ -34,12 +38,17 @@ namespace Cibertec.MVC.Controllers
                 _unit.Customers.Insert(pCustomer);
                 RedirectToAction("Index");
             }
-            return View(pCustomer);
+            //return View(pCustomer);
+            return PartialView("_Create", pCustomer);
         }
 
-        public ActionResult Edit(string pId)
+        //public ActionResult Edit(string pId)
+        //{
+        //    return View(_unit.Customers.GetById(pId));
+        //}
+        public PartialViewResult Edit(string pId)
         {
-            return View(_unit.Customers.GetById(pId));
+            return PartialView("_Edit", _unit.Customers.GetById(pId));
         }
 
         [HttpPost]
@@ -50,7 +59,8 @@ namespace Cibertec.MVC.Controllers
                 _unit.Customers.Update(pCustomer);
                 RedirectToAction("Index");
             }
-            return View(pCustomer);
+            //return View(pCustomer);
+            return PartialView("_Edit", pCustomer);
         }
 
         public ActionResult Delete(string pId)
@@ -64,5 +74,14 @@ namespace Cibertec.MVC.Controllers
             if (_unit.Customers.Delete(pCustomer)) { return RedirectToAction("Index"); }
             return View(pCustomer);
         }
+
+        public ActionResult Details(string pId)
+        {
+            var customer = _unit.Customers.GetById(pId);
+            //return PartialView("_DetalleCliente", customer);
+            return View("DetalleCliente", customer);
+
+        }
+    
     }
 }

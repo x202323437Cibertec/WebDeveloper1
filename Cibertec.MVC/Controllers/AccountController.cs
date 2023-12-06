@@ -15,6 +15,7 @@ namespace Cibertec.MVC.Controllers
 
         public AccountController(ILog pLog, IUnitOfWork pUnit) : base(pLog, pUnit) { }
 
+        [AllowAnonymous]
         public ActionResult Login(string pReturnURL)
         {
             return View(new UserViewModel { ReturnURL = pReturnURL });
@@ -22,6 +23,7 @@ namespace Cibertec.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Login(UserViewModel pUser)
         {
             if (!ModelState.IsValid) return View(pUser);
@@ -39,6 +41,14 @@ namespace Cibertec.MVC.Controllers
             var authmanager = context.Authentication;
             authmanager.SignIn(identity);
             return RedirecToLocal(pUser.ReturnURL);
+        }
+
+        public ActionResult Logout()
+        { 
+            var context = Request.GetOwinContext();
+            var authmanager = context.Authentication;
+            authmanager.SignOut("ApplicationCookie");
+            return RedirectToAction("Login", "Account");
         }
 
         private ActionResult RedirecToLocal(string returnUrl)

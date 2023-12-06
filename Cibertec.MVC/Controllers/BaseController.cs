@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace Cibertec.MVC.Controllers
 {
+    [Authorize(Roles = "Profesor")]
     public class BaseController : Controller
     {
         public readonly ILog _log;
