@@ -1,104 +1,17 @@
-﻿@*@model IEnumerable<Cibertec.Models.Customers>*@
-
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>Index</h2>
 <div>@ViewBag.MensajeLog</div>
-
+<br />
+@Messages.AlertMessages()
 <p>
     <a href="#" onclick="cibertec.getModal('@Url.Action("Create")'); return false;" data-toggle="modal" data-target="#modal-container" class="btn btn-success btn-sm">
         <span class="glyphicon glyphicon-plus"> Nuevo</span>
     </a>
 </p>
 @Html.Partial("_List")
-
 @Modal.GetModal("Customer", "")
-
 <script src="~/App/cibertec.js" type="text/javascript"></script>
-
-@*
-    <p>@Html.ActionLink("Create New", "Create")</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Region)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostalCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fax)
-        </th>
-        <th></th>
-    </tr>
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Region)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostalCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fax)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  pId=item.CustomerID  }) |
-            @Html.ActionLink("Details", "Details", new { pId = item.CustomerID }) |
-            @Html.ActionLink("Delete", "Delete", new { pId = item.CustomerID })
-        </td>
-    </tr>
-}
-</table>
-    *@
+<script src="~/App/customer.js" type="text/javascript"></script>

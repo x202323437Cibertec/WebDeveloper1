@@ -36,7 +36,8 @@ namespace Cibertec.MVC.Controllers
             if (ModelState.IsValid)
             {
                 _unit.Customers.Insert(pCustomer);
-                RedirectToAction("Index");
+                //RedirectToAction("Index");
+                return RedirectToAction ("Index");
             }
             //return View(pCustomer);
             return PartialView("_Create", pCustomer);
@@ -57,22 +58,28 @@ namespace Cibertec.MVC.Controllers
             if (ModelState.IsValid)
             {
                 _unit.Customers.Update(pCustomer);
-                RedirectToAction("Index");
+                //RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
             //return View(pCustomer);
             return PartialView("_Edit", pCustomer);
         }
 
-        public ActionResult Delete(string pId)
+        //public ActionResult Delete(string pId)
+        //{
+        //    return View(_unit.Customers.GetById(pId));
+        //}
+        public PartialViewResult Delete(string pId)
         {
-            return View(_unit.Customers.GetById(pId));
+            return PartialView("_Delete", _unit.Customers.GetById(pId));
         }
 
         [HttpPost]
         public ActionResult Delete(Customers pCustomer)
         {
             if (_unit.Customers.Delete(pCustomer)) { return RedirectToAction("Index"); }
-            return View(pCustomer);
+            //return View(pCustomer);
+            return PartialView("_Delete", pCustomer);
         }
 
         public ActionResult Details(string pId)

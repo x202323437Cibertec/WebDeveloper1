@@ -170,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\cibertec.js" />
+    <Content Include="App\customer.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -187,6 +188,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="App_Code\Modal.cshtml" />
+    <Content Include="App_Code\Messages.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -234,6 +236,7 @@
     <Content Include="Views\Customer\_List.cshtml" />
     <Content Include="Views\Customer\_Create.cshtml" />
     <Content Include="Views\Customer\_Edit.cshtml" />
+    <Content Include="Views\Customer\_Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
