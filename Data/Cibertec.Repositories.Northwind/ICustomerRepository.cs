@@ -5,7 +5,7 @@ namespace Cibertec.Repositories.Northwind
 {
     public interface ICustomerRepository:IRepository<Customers>
     {
-        IEnumerable<Customers> PageList(int pStartRow, int pEndRow);
+        IEnumerable<Customers> PagedList(int pStartRow, int pEndRow);
         int Count();
     }
 }

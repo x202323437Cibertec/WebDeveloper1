@@ -12,30 +12,30 @@
             <th>
                 @Html.DisplayNameFor(model => model.ContactName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.ContactTitle)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Address)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.City)
             </th>
             @*<th>
                 @Html.DisplayNameFor(model => model.Region)
-            </th>*@
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.PostalCode)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Country)
             </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Fax)
-            </th>
+            </th>*@
             <th></th>
         </tr>
         @foreach (var item in Model)
@@ -50,30 +50,30 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ContactName)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.ContactTitle)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Address)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.City)
                 </td>
                 @*<td>
                     @Html.DisplayFor(modelItem => item.Region)
-                </td>*@
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.PostalCode)
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.Country)
                 </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Phone)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Fax)
-                </td>
+                </td>*@
                 <td>
                     <a href="#" onclick="cibertec.getModal('@Url.Action("Edit", new { pId=item.CustomerID })'); return false;" data-toggle="modal" data-target="#modal-container" class="btn btn-warning btn-sm">
                         <span class="glyphicon glyphicon-edit"></span> Editar

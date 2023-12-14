@@ -3,6 +3,7 @@ using Cibertec.MVC.ActionFilters;
 using Cibertec.Repositories.Dapper.Northwind;
 using Cibertec.UnitOfWork;
 using log4net;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 
@@ -87,8 +88,27 @@ namespace Cibertec.MVC.Controllers
             var customer = _unit.Customers.GetById(pId);
             //return PartialView("_DetalleCliente", customer);
             return View("DetalleCliente", customer);
-
         }
-    
+
+        [Route("Customer/List/{pPage:int}/{pRows:int}")]
+        public PartialViewResult List(int pPage, int pRows)
+        {
+            if (pPage <= 0 || pRows <= 0)
+            {
+                return PartialView(new List<Customers>());
+            }
+            var iStartRecord = ((pPage - 1) * pRows) + 1;
+            var iEndRecord = pPage * pRows;
+            return PartialView("_List", _unit.Customers.PagedList(iStartRecord, iEndRecord));
+        }
+
+        [HttpGet]
+        [Route("Customer/Count/{pRows:int}")]
+        public int Count(int pRows)
+        {
+            var totalRecords = _unit.Customers.Count();
+            return totalRecords % pRows != 0 ? (totalRecords / pRows) + 1 : totalRecords / pRows;
+        }
+
     }
 }
