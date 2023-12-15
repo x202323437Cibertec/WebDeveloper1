@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.MVC", "Cibertec.MV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec", "Web\Cibertec\Cibertec.csproj", "{E616A882-81E5-4CC9-A473-0B441C225262}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.WepAPI", "Cibertec.WepAPI\Cibertec.WepAPI.csproj", "{DB77D0CC-825C-4A88-BF29-F5CF460786DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{E616A882-81E5-4CC9-A473-0B441C225262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E616A882-81E5-4CC9-A473-0B441C225262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E616A882-81E5-4CC9-A473-0B441C225262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB77D0CC-825C-4A88-BF29-F5CF460786DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB77D0CC-825C-4A88-BF29-F5CF460786DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB77D0CC-825C-4A88-BF29-F5CF460786DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB77D0CC-825C-4A88-BF29-F5CF460786DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
