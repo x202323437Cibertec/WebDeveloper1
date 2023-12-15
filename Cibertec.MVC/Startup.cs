@@ -17,6 +17,7 @@ namespace Cibertec.MVC
                 AuthenticationType = "ApplicationCookie"
                 ,LoginPath = new PathString("/Account/Login")
             });
+            app.MapSignalR();
         }
     }
 }

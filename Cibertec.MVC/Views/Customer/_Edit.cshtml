@@ -2,6 +2,8 @@
 
 <h2>Edit</h2>
 
+@Messages.Message("inUse", "Edit", "danger", "Registro en uso")
+
 @using (Ajax.BeginForm("Edit"
                         , new { Controller = "Customer" }
                         , new AjaxOptions()
@@ -119,5 +121,15 @@
 <script type="text/javascript">
     $(function () {
         $.validator.unobtrusive.parse("#editForm");
+
+        $("#inUse").addClass("hidden");
+        customer.addCustomer('@Model.CustomerID');
+        customer.validate('@Model.CustomerID');
     });
+
+    customer.closeModal = function () {
+        if (customer.recordInUse) {
+            customer.removeCustomer('@Model.CustomerID');
+        }
+    }
 </script>
