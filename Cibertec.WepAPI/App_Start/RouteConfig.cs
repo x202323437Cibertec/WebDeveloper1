@@ -6,6 +6,8 @@ namespace Cibertec.WepAPI.App_Start
     {
         public static void Register(HttpConfiguration pConfig)
         {
+            pConfig.MapHttpAttributeRoutes();
+
             pConfig.Routes.MapHttpRoute(
                 name: "DefaultApi"
                 ,routeTemplate: "api/{controller}/{id}"
