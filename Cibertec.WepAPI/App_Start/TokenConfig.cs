@@ -15,8 +15,7 @@ namespace Cibertec.WepAPI.App_Start
         public static void ConfigureOAuth(IAppBuilder app, HttpConfiguration config)
         {
             var unitOFWork = (IUnitOfWork)config.DependencyResolver.GetService(typeof(IUnitOfWork));
-            OAuthAuthorizationServerOptions OAuthServerOptions = new
-                OAuthAuthorizationServerOptions()
+            OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),

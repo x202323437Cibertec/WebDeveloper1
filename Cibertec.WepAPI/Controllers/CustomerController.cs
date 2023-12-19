@@ -1,5 +1,6 @@
 ﻿using Cibertec.Models;
 using Cibertec.UnitOfWork;
+using log4net;
 using System.Web.Http;
 
 namespace Cibertec.WepAPI.Controllers
@@ -7,7 +8,10 @@ namespace Cibertec.WepAPI.Controllers
     [RoutePrefix("customer")]
     public class CustomerController : BaseController
     {
-        public CustomerController(IUnitOfWork pUnit) : base(pUnit) { }
+        public CustomerController(IUnitOfWork pUnit, ILog pLog) : base(pUnit, pLog)
+        {
+            _log.Info($"{typeof(CustomerController)} ejecutandose");
+        }
 
         [Route("")]
         [HttpPost]

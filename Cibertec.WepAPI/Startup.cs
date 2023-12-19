@@ -11,10 +11,15 @@ namespace Cibertec.WepAPI
     {
         public void Configuration(IAppBuilder app)
         {
+            log4net.Config.XmlConfigurator.Configure();
+            var vLog = log4net.LogManager.GetLogger(typeof(Startup));
+            vLog.Debug("Logger iniciado");
+
             var config = new HttpConfiguration();
             DIConfig.ConfigureInjector(config);
             TokenConfig.ConfigureOAuth(app, config);
             RouteConfig.Register(config);
+            WebApiConfig.Configure(config);
             app.UseWebApi(config);
         }
     }
