@@ -1,5 +1,6 @@
 ﻿using Cibertec.WepAPI.App_Start;
 using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Owin;
 using System.Web.Http;
 
@@ -15,11 +16,14 @@ namespace Cibertec.WepAPI
             var vLog = log4net.LogManager.GetLogger(typeof(Startup));
             vLog.Debug("Logger iniciado");
 
+
+
             var config = new HttpConfiguration();
             DIConfig.ConfigureInjector(config);
             TokenConfig.ConfigureOAuth(app, config);
             RouteConfig.Register(config);
             WebApiConfig.Configure(config);
+            app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
         }
     }
